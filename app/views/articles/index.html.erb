@@ -1,9 +1,12 @@
 <h1>All Articles</h1>
-
-<ul id="articles">
+<table style="width:100%">
   <% @articles.each do |article| %>
-    <li>
-      <a href="/articles/<%= article.id %>"><%= article.title %></a>
-    </li>
+  <tr id="articles">
+    <th>
+      <%= link_to article.title, article_path(article), class: 'article_title' %>
+    </th>
+  </tr>
   <% end %>
-</ul>
+</table>
+
+<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
